@@ -13,3 +13,7 @@ body {
 .text-primary-color {
     @apply text-[#06e762];
 }
+
+.border-primary-color {
+    @apply border-[#06e762];
+}
