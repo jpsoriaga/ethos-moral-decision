@@ -4,4 +4,8 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+body {
+    @apply bg-[#0a0a0a] text-white;
+}
+
 @import "tailwindcss";
