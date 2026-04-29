@@ -9,3 +9,7 @@ body {
 }
 
 @import "tailwindcss";
+
+.text-primary-color {
+    @apply text-[#06e762];
+}
