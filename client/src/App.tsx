@@ -4,9 +4,7 @@ import LoginPage from "./pages/LoginPage";
 function App() {
   return (
     <>
-      <Routes>
-        
-      </Routes>
+      <LoginPage />
     </>
   )
 }
