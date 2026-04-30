@@ -64,12 +64,12 @@ export default function LoginForm() {
                 <div className="flex flex-col gap-y-3 mb-10">
                     <h2 className="text-primary-color text-xl">Welcome Back!</h2>
                     <p className="font-semibold text-4xl">Login to continue your ethical journey</p>
-                    <span className="text-sm text-white/70">Log your decisions. Understand your patterns. <br /> Grow with insight</span>
+                    <span className="text-white/70">Log your decisions. Understand your patterns. <br /> Grow with insight</span>
                 </div>
 
                 <div className="flex flex-col gap-y-5 mb-5">
                     <div className="flex flex-col gap-y-1">
-                        <span className="text-sm">Username</span>
+                        <span>Username</span>
 
                         <div className="relative">
                             <User className="absolute left-2 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
@@ -87,7 +87,7 @@ export default function LoginForm() {
                     </div>
 
                     <div className="flex flex-col gap-y-1">
-                        <span className="text-sm">Password</span>
+                        <span>Password</span>
 
                         <div className="relative">
                             <KeyRound className="absolute left-2 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
