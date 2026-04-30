@@ -119,7 +119,9 @@ export default function LoginForm() {
 
                 <button className='text-primary-color flex w-full justify-end mb-5'>Forgot Password?</button>
 
-                <button onClick={handleLogin} className='button-primary mb-5'>Login</button>
+                <button onClick={handleLogin} disabled={loading} className='button-primary mb-5'>
+                    {loading ? "Logging in..." : "Login"}
+                </button>
 
                 <span className='flex items-end justify-center gap-x-1'>Don't have an account? <button className='text-primary-color'>Register</button></span>
             </div>
