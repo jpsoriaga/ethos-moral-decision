@@ -6,8 +6,6 @@ export default function DashboardPage() {
         document.title = "Dashboard | Ethos";
     }, []);
 
-    toast.success("Successfully logged in!");
-
     return(
         <>
             <div>
