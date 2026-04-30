@@ -10,6 +10,15 @@ body {
 
 @import "tailwindcss";
 
+#nprogress .bar {
+  background: #00cc73 !important;
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  display: none !important;
+}
+
 .text-primary-color {
     @apply text-[#00cc73];
 }

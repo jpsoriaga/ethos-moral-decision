@@ -1,7 +1,12 @@
 import { User, KeyRound } from 'lucide-react';
 import Logo from "../../assets/logo-and-text.png"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../../auth/useAuth';
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+
+NProgress.configure({ showSpinner: false });
 
 export default function LoginForm() {
 
@@ -13,6 +18,8 @@ export default function LoginForm() {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
+
+    const { login } = useAuth();
 
     const handleLogin = async () => {
         setErrorUsername(false);
@@ -32,6 +39,7 @@ export default function LoginForm() {
         }
 
         try {
+            NProgress.start();
             setLoading(true);
 
             const res = await fetch("https://ethos-moral-decision-logger-api.onrender.com/api/token/", {
@@ -48,11 +56,13 @@ export default function LoginForm() {
                 throw new Error(data.message || "Login failed");
             }
 
+            login(data.accessToken, username);
             navigate("/dashboard");
 
         } catch (err: string | any) {
             setError(err.message);
         } finally {
+            NProgress.done();
             setLoading(false);
         }
 
