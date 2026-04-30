@@ -7,8 +7,8 @@ export default function LoginForm() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errorUsername, setErrorUsername] = useState(true);
-    const [errorPassword, setErrorPassword] = useState(true);
+    const [errorUsername, setErrorUsername] = useState(false);
+    const [errorPassword, setErrorPassword] = useState(false);
     const [error, setError] = useState("This field is required");
     const [loading, setLoading] = useState(false);
 
