@@ -5,7 +5,7 @@ body {
 }
 
 body {
-    @apply bg-[#0a0a0a] text-white;
+    @apply bg-[#161616] text-white;
 }
 
 @import "tailwindcss";
@@ -16,4 +16,12 @@ body {
 
 .border-primary-color {
     @apply border-[#06e762];
+}
+
+.button-primary {
+    @apply bg-[#00cc73] rounded-full text-black font-medium py-3;
+}
+
+.secodary-for-bg {
+    @apply bg-[#1c1c1c];
 }

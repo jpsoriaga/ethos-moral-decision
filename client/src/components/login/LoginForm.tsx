@@ -1,4 +1,4 @@
-import { User } from 'lucide-react';
+import { User, KeyRound } from 'lucide-react';
 import Logo from "../../assets/logo-and-text.png"
 
 export default function LoginForm() {
@@ -9,11 +9,11 @@ export default function LoginForm() {
 
                 <div className="flex flex-col gap-y-3 mb-10">
                     <h2 className="text-primary-color text-xl">Welcome Back!</h2>
-                    <p className="font-semibold text-4xl">Log in to continue your ethical journey</p>
+                    <p className="font-semibold text-4xl">Login to continue your ethical journey</p>
                     <span className="text-sm text-white/70">Log your decisions. Understand your patterns. <br /> Grow with insight</span>
                 </div>
 
-                <div className="flex flex-col gap-y-3">
+                <div className="flex flex-col gap-y-5 mb-5">
                     <div className="flex flex-col gap-y-1">
                         <span className="text-sm">Username</span>
 
@@ -23,7 +23,7 @@ export default function LoginForm() {
                             <input
                                 type="text"
                                 placeholder="Enter your username"
-                                className="pl-9 pr-3 py-2 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
+                                className="pl-9 pr-3 py-3 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
                                  focus:outline-none focus:ring-1 focus:ring-primary-color focus:border-transparent"
                             />
                         </div>
@@ -33,17 +33,23 @@ export default function LoginForm() {
                         <span className="text-sm">Password</span>
 
                         <div className="relative">
-                            <User className="absolute left-2 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
+                            <KeyRound className="absolute left-2 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
 
                             <input
                                 type="password"
                                 placeholder="Enter your password"
-                                className="pl-9 pr-3 py-2 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
+                                className="pl-9 pr-3 py-3 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
                                  focus:outline-none focus:ring-1 focus:ring-primary-color focus:border-transparent"
                             />
                         </div>
                     </div>
                 </div>
+
+                <button className='text-primary-color flex w-full justify-end mb-5'>Forgot Password?</button>
+
+                <button className='button-primary mb-5'>Login</button>
+
+                <span className='flex items-center justify-center gap-x-1'>Don't have an account? <button className='text-primary-color'>Sign up</button></span>
             </div>
         </>
     );
