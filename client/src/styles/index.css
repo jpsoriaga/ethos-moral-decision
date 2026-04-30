@@ -14,6 +14,10 @@ body {
     @apply text-[#00cc73];
 }
 
+.text-error {
+    @apply text-[#d31130] text-sm;
+}
+
 .border-primary-color {
     @apply border-[#00cc73];
 }
@@ -25,3 +29,14 @@ body {
 .secodary-for-bg {
     @apply bg-[#1c1c1c];
 }
+
+.input-primary {
+    @apply py-3 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
+            focus:outline-none focus:border-transparent focus:ring-1;
+}
+
+.input-error {
+    @apply py-3 w-full text-sm rounded-md text-[#d31130] placeholder-[#d31130] border border-[#d31130]
+            focus:outline-none focus:border-transparent;
+}
+

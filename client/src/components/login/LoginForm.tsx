@@ -1,7 +1,61 @@
 import { User, KeyRound } from 'lucide-react';
 import Logo from "../../assets/logo-and-text.png"
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorUsername, setErrorUsername] = useState(true);
+    const [errorPassword, setErrorPassword] = useState(true);
+    const [error, setError] = useState("This field is required");
+    const [loading, setLoading] = useState(false);
+
+    const handleLogin = async () => {
+        setErrorUsername(false);
+        setErrorPassword(false);
+        setError("");
+
+        if (!username) {
+            setErrorUsername(true);
+        }
+
+        if (!password) {
+            setErrorPassword(true);
+        }
+
+        if (!username || !password) {
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            const res = await fetch("https://ethos-moral-decision-logger-api.onrender.com/api/token/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+          //    const data = await res.json();
+
+            if(res.ok) {
+                console.log("Login successful");
+            } else {
+                console.log("Login failed");
+            }
+
+        } catch (err: string | any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+
+    };
+
     return (
         <>
             <div className="flex flex-col justify-center min-h-screen py-10 px-5 sm:hidden">
@@ -23,10 +77,13 @@ export default function LoginForm() {
                             <input
                                 type="text"
                                 placeholder="Enter your username"
-                                className="pl-9 pr-3 py-3 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
-                                 focus:outline-none focus:ring-1 focus:ring-primary-color focus:border-transparent"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                onClick={() => setErrorUsername(false)}
+                                className={`pl-9 pr-3 ${errorUsername ? "input-error" : "input-primary"}`}
                             />
                         </div>
+                        {errorUsername && <span className='text-error'>Username is required</span>}
                     </div>
 
                     <div className="flex flex-col gap-y-1">
@@ -38,16 +95,19 @@ export default function LoginForm() {
                             <input
                                 type="password"
                                 placeholder="Enter your password"
-                                className="pl-9 pr-3 py-3 w-full text-sm rounded-md text-white placeholder-white/50 border border-white/50
-                                 focus:outline-none focus:ring-1 focus:ring-primary-color focus:border-transparent"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                onClick={() => setErrorPassword(false)}
+                                className={`pl-9 pr-3 ${errorPassword ? "input-error" : "input-primary"}`}
                             />
                         </div>
+                        {errorPassword && <span className='text-error'>Password is required</span>}
                     </div>
                 </div>
 
                 <button className='text-primary-color flex w-full justify-end mb-5'>Forgot Password?</button>
 
-                <button className='button-primary mb-5'>Login</button>
+                <button onClick={handleLogin} className='button-primary mb-5'>Login</button>
 
                 <span className='flex items-end justify-center gap-x-1'>Don't have an account? <button className='text-primary-color'>Register</button></span>
             </div>
