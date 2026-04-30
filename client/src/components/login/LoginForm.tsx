@@ -59,7 +59,7 @@ export default function LoginForm() {
     return (
         <>
             <div className="flex flex-col justify-center min-h-screen py-10 px-5 sm:hidden">
-                <img src={Logo} alt="Ethos Logo" className="w-30 h-auto mb-15" />
+                <img src={Logo} alt="Ethos Logo" className="w-30 h-auto mb-10" />
 
                 <div className="flex flex-col gap-y-3 mb-10">
                     <h2 className="text-primary-color text-xl">Welcome Back!</h2>
