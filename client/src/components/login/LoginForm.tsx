@@ -12,6 +12,8 @@ export default function LoginForm() {
     const [error, setError] = useState("This field is required");
     const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleLogin = async () => {
         setErrorUsername(false);
         setErrorPassword(false);
@@ -40,13 +42,13 @@ export default function LoginForm() {
                 body: JSON.stringify({ username, password }),
             });
 
-          //    const data = await res.json();
+            const data = await res.json();
 
-            if(res.ok) {
-                console.log("Login successful");
-            } else {
-                console.log("Login failed");
+            if (!res.ok) {
+                throw new Error(data.message || "Login failed");
             }
+
+            navigate("/dashboard");
 
         } catch (err: string | any) {
             setError(err.message);
