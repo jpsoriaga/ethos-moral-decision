@@ -49,7 +49,7 @@ export default function LoginForm() {
 
                 <button className='button-primary mb-5'>Login</button>
 
-                <span className='flex items-center justify-center gap-x-1'>Don't have an account? <button className='text-primary-color'>Sign up</button></span>
+                <span className='flex items-end justify-center gap-x-1'>Don't have an account? <button className='text-primary-color'>Register</button></span>
             </div>
         </>
     );

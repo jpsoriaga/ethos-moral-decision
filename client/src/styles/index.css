@@ -11,11 +11,11 @@ body {
 @import "tailwindcss";
 
 .text-primary-color {
-    @apply text-[#06e762];
+    @apply text-[#00cc73];
 }
 
 .border-primary-color {
-    @apply border-[#06e762];
+    @apply border-[#00cc73];
 }
 
 .button-primary {
