@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import toast from "react-hot-toast";
+import NavBar from "../components/NavBar";
 
 export default function DashboardPage() {
     useEffect(() => {
@@ -8,6 +8,7 @@ export default function DashboardPage() {
 
     return(
         <>
+            <NavBar />
             <div>
                 Dashboard Page
             </div>

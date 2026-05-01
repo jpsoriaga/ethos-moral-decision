@@ -10,14 +10,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const login = (token: string, username: string) => {
         localStorage.setItem("accessToken", token);
-        localStorage.setItem("name", username);
+        localStorage.setItem("username", username);
         setusername(username);
         setIsAuthenticated(true);
     };
 
     const logout = () => {
     localStorage.removeItem("accessToken");
-    localStorage.removeItem("name");
+    localStorage.removeItem("username");
     setusername("");
     setIsAuthenticated(false);
     }
