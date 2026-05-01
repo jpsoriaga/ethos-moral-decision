@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import { ProtectedRoute, PublicRoute } from "./routes/ProtectedRoute";
-import DashboardPage from "./pages/DashboardPage";
+import DashboardPage from "./pages/InsightPage";
 import { Toaster } from "react-hot-toast";
 
 function App() {

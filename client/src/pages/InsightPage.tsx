@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import NavBar from "../components/NavBar";
+import Header from "../components/Header";
 
 export default function DashboardPage() {
     useEffect(() => {
@@ -8,9 +9,10 @@ export default function DashboardPage() {
 
     return(
         <>
+            <Header />
             <NavBar />
             <div>
-                Dashboard Page
+                
             </div>
         </>
     );
