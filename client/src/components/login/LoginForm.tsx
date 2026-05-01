@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../auth/useAuth';
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import toast from "react-hot-toast";
 
 NProgress.configure({ showSpinner: false });
 
@@ -57,7 +58,10 @@ export default function LoginForm() {
             }
 
             login(data.accessToken, username);
-            navigate("/dashboard");
+            toast.success("Successfully logged in!");
+            setTimeout(() => {
+                navigate("/dashboard");
+            }, 300);
 
         } catch (err: string | any) {
             setError(err.message);

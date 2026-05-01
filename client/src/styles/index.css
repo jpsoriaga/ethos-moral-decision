@@ -35,7 +35,7 @@ body {
     @apply bg-[#00cc73] rounded-full text-black font-medium py-3;
 }
 
-.secodary-for-bg {
+.secondary-bg {
     @apply bg-[#1c1c1c];
 }
 
