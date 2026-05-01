@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Header from "../components/Header";
+import Insight from "../components/insight/Insight";
 
-export default function DashboardPage() {
+export default function InsightPage() {
     useEffect(() => {
-        document.title = "Dashboard | Ethos";
+        document.title = "Insight | Ethos";
     }, []);
 
     return(
@@ -12,7 +13,7 @@ export default function DashboardPage() {
             <Header />
             <NavBar />
             <div>
-                
+                <Insight />
             </div>
         </>
     );
