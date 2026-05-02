@@ -1,15 +1,18 @@
+import { useEffect, useState } from "react";
 
-export default function RiskBar({
-    low = 0,
-    medium = 0,
-    high = 0,
-}) {
+export default function RiskBar({ low = 0, medium = 0, high = 0 }) {
     const total = low + medium + high;
 
     const score = low * 1 + medium * 2 + high * 3;
     const maxScore = total * 3;
 
     const percentage = total === 0 ? 0 : (score / maxScore) * 100;
+
+    const [width, setWidth] = useState(0);
+
+    useEffect(() => {
+        setWidth(percentage);
+    }, [percentage]);
 
     return (
         <div className="w-full">
@@ -19,8 +22,8 @@ export default function RiskBar({
 
             <div className="w-full h-2 bg-[rgba(0,0,0,0.2)] rounded-full overflow-hidden">
                 <div
-                    className="h-full bg-[#2a2a2a] rounded-full transition-all duration-500"
-                    style={{ width: `${percentage}%` }}
+                    className="h-full bg-[#2a2a2a] rounded-full transition-[width] duration-500 ease-out"
+                    style={{ width: `${width}%` }}
                 />
             </div>
         </div>
