@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 
 type WeeklyData = {
     sunday: number;
@@ -38,6 +38,18 @@ export default function WeeklyChart({ data, activeDay }: WeeklyChartProps) {
         }));
     }, [data, max]);
 
+    const [animatedHeights, setAnimatedHeights] = useState(
+        normalized.map(() => 0)
+    );
+
+    useEffect(() => {
+        const t = setTimeout(() => {
+            setAnimatedHeights(normalized.map((item) => item.height));
+        }, 50);
+
+        return () => clearTimeout(t);
+    }, [normalized]);
+
     return (
         <div className="w-full bg-[#1c1c1c] p-4 rounded-3xl">
             <h2 className="text-white text-sm font-semibold mb-2">
@@ -50,20 +62,21 @@ export default function WeeklyChart({ data, activeDay }: WeeklyChartProps) {
 
                     return (
                         <div key={item.day} className="flex flex-col items-center gap-1 flex-1">
-
-                            {/* Bar */}
                             <div className="w-4 flex items-end h-[56px]">
                                 <div
-                                    className={`w-full rounded-sm bg-green-500 transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30"
-                                        }`}
-                                    style={{ height: `${item.height}%` }}
+                                    className={`w-full rounded-sm bg-green-500 transition-all duration-500 ease-out ${
+                                        isActive ? "opacity-100" : "opacity-30"
+                                    }`}
+                                    style={{
+                                        height: `${animatedHeights[i]}%`,
+                                    }}
                                 />
                             </div>
 
-                            {/* Label */}
                             <span
-                                className={`text-[10px] ${isActive ? "text-white" : "text-white/30"
-                                    }`}
+                                className={`text-[10px] ${
+                                    isActive ? "text-white" : "text-white/30"
+                                }`}
                             >
                                 {dayLabels[i]}
                             </span>

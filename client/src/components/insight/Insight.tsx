@@ -24,7 +24,7 @@ export default function Insight() {
                                 friday: 0,
                                 saturday: 1,
                             }}
-                            activeDay="tuesday"
+                            activeDay="saturday"
                         />
                     </div>
                 </div>
@@ -34,9 +34,6 @@ export default function Insight() {
                     questionable={1}
                     unacceptable={3} />
 
-                <RiskMetrics low={2} medium={8} high={3} />
-
-                <RiskMetrics low={2} medium={8} high={3} />
                 <RiskMetrics low={2} medium={8} high={3} />
             </div>
         </>
