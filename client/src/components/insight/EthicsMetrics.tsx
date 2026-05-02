@@ -53,7 +53,7 @@ export default function EthicsMetrics({
   const total = grey + high + questionable + unacceptable;
 
   return (
-    <div className="w-full bg-[#1c1c1c] p-4 rounded-2xl">
+    <div className="w-full bg-[#1c1c1c] py-4 px-5 rounded-3xl">
       <h2 className="text-white font-semibold mb-4">Ethics Breakdown</h2>
 
       <div className="flex flex-col gap-y-1">

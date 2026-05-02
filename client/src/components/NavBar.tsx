@@ -5,7 +5,7 @@ export default function NavBar() {
   const [active, setActive] = useState("home");
 
   return (
-    <div className="flex items-center justify-center fixed bottom-0 h-16 w-full secondary-bg rounded-t-3xl border-t border-white/20">
+    <div className="z-50 flex items-center justify-center fixed bottom-0 h-16 w-full secondary-bg rounded-t-3xl border-t border-white/20">
       <div className="flex items-center justify-center gap-x-7">
 
         <button
