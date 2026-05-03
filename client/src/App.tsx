@@ -1,15 +1,22 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import { ProtectedRoute, PublicRoute } from "./routes/ProtectedRoute";
 import DashboardPage from "./pages/InsightPage";
 import { Toaster } from "react-hot-toast";
-import CreateDecisionPage from "./pages/CreateDecisionPage";
 import NavBar from "./components/NavBar";
+import CreateDecisionPage from "./pages/CreateDecisionPage";
+import Step1TheSituation from "./components/createDecision/Step1TheSituation";
+import Step2TheAction from "./components/createDecision/Step2TheAction";
+import Step3TheReasoning from "./components/createDecision/Step3TheReasoning";
+import { useAuth } from "../src/auth/useAuth";
 
 function App() {
+
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
-      <NavBar />
+      {isAuthenticated && <NavBar />}
       <Toaster
         position="top-center"
         toastOptions={{
@@ -26,7 +33,31 @@ function App() {
         <Route path="/" element={<PublicRoute><LoginPage /></PublicRoute>} />
 
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-        <Route path="/create-decision" element={<ProtectedRoute><CreateDecisionPage /></ProtectedRoute>} />
+
+        <Route
+          path="/create-decision"
+          element={
+            <ProtectedRoute>
+              <CreateDecisionPage />
+            </ProtectedRoute>
+          }
+        >
+          <Route
+            index
+            element={<Step1TheSituation />}
+          />
+          <Route
+            path="the-action"
+            element={<Step2TheAction />}
+          />
+
+          <Route
+            path="the-reasoning"
+            element={<Step3TheReasoning />}
+          />
+
+        </Route>
+
       </Routes>
     </>
   )

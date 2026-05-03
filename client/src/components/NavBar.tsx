@@ -7,7 +7,7 @@ export default function NavBar() {
     <div className="z-50 flex items-center justify-center fixed bottom-0 h-16 w-full secondary-bg rounded-t-3xl border-t border-white/20">
       <div className="flex items-center justify-center gap-x-7">
 
-        <NavLink to="/dashboard" end className="flex items-center gap-x-2">
+        <NavLink to="/dashboard"   className="flex items-center gap-x-2">
           {({ isActive }) => (
             <>
               <House className={`w-5 h-5 transition-colors duration-300 ${isActive ? "text-primary-color" : "text-white"}`} />

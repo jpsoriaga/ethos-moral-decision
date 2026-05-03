@@ -57,7 +57,7 @@ export default function LoginForm() {
                 throw new Error(data.message || "Login failed");
             }
 
-            login(data.accessToken, username);
+            login(data.access, username);
             toast.success("Successfully logged in!");
             setTimeout(() => {
                 navigate("/dashboard");

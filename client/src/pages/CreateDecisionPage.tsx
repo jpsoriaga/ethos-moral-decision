@@ -1,19 +1,23 @@
-import { useEffect } from "react";
-import Header from "../components/createDecision/Header";
+import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 export default function CreateDecisionPage() {
-
     useEffect(() => {
         document.title = "Create Decision | Ethos";
     }, []);
 
-    return(
-        <>
+    const [title, setTitle] = useState("");
+    const [context, setContext] = useState("");
 
-            <Header />
-            <div>
-                
-            </div>
-        </>
+    const [action, setAction] = useState("");
+
+    const [reasoning, setReasoning] = useState("");
+
+    return (
+        <div>
+            <Outlet context={{ title, setTitle, context, setContext,
+            action, setAction, reasoning, setReasoning
+             }} />
+        </div>
     );
 }
