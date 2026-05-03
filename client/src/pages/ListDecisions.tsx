@@ -1,6 +1,5 @@
 
-
-export default function Dashboard() {
+export default function ListDecisions() {
     return(
         <>
             <div>
