@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import NavBar from "../components/NavBar";
-import Header from "../components/Header";
+import Header from "../components/insight/Header";
 import Insight from "../components/insight/Insight";
 
 export default function InsightPage() {
@@ -11,7 +10,6 @@ export default function InsightPage() {
     return(
         <>
             <Header />
-            <NavBar />
             <div>
                 <Insight />
             </div>
