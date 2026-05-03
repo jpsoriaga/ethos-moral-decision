@@ -7,7 +7,7 @@ import WeeklyChart from "./WeeklyChart";
 export default function Insight() {
     return (
         <>
-            <div className="w-full flex flex-col top-20 fixed h-[calc(100vh-52px)] overflow-y-auto p-5 pb-28 gap-y-5">
+            <div className="w-full flex flex-col top-19 fixed h-[calc(100vh-52px)] overflow-y-auto p-5 pb-27 gap-y-5">
                 <HeroSection />
                 <div className="justify-between flex gap-x-3">
                     <div className="w-1/2">
