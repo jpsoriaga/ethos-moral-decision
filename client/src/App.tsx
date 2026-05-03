@@ -8,11 +8,15 @@ import CreateDecisionPage from "./pages/CreateDecisionPage";
 import Step1TheSituation from "./components/createDecision/Step1TheSituation";
 import Step2TheAction from "./components/createDecision/Step2TheAction";
 import Step3TheReasoning from "./components/createDecision/Step3TheReasoning";
+import { useAuth } from "../src/auth/useAuth";
 
 function App() {
+
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
-      <NavBar />
+      {isAuthenticated && <NavBar />}
       <Toaster
         position="top-center"
         toastOptions={{
