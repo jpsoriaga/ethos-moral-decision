@@ -1,15 +1,17 @@
+import { ChevronLeft } from 'lucide-react';
 
+export default function Header() {
+    return(
+        <div className="flex items-center fixed top-0 w-full py-3 px-5">
+            
+            <button className="rounded-full flex items-center justify-center border border-white/20 p-3 cursor-pointer">
+                <ChevronLeft className="w-5 h-5 text-white" />
+            </button>
 
-export default function BackHeader() {
-    return (
-        <div className="flex items-center fixed top-0 w-full py-4 px-5 z-50 bg-[#1c1c1c] border-b border-white/20">
-            <div className="flex flex-col">
-                <span className=" font-bold tracking-wide text-xl">
-                    Create Decision
-                </span>
+            <span className="absolute left-1/2 -translate-x-1/2 font-bold tracking-wide text-xl">
+                Insights
+            </span>
 
-                <p className='text-xs text-white/80 tracking-wide'>Understand the thinking behind your choices</p>
-            </div>
         </div>
     );
 }
