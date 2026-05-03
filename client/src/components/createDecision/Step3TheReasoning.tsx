@@ -4,13 +4,13 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 type ContextType = {
-    action: string;
-    setAction: React.Dispatch<React.SetStateAction<string>>;
+    reasoning: string;
+    setReasoning: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function Step2TheAction() {
+export default function Step3TheReasoning() {
 
-    const { action, setAction } = useOutletContext<ContextType>();
+    const { reasoning, setReasoning } = useOutletContext<ContextType>();
 
     const navigate = useNavigate();
 
@@ -22,25 +22,25 @@ export default function Step2TheAction() {
         <>
             <Backheader />
             <div className="w-full flex flex-col top-19 fixed h-[calc(100vh-52px)] overflow-y-auto p-5 pb-27 gap-y-5">
-                <h1 className="text-xl font-bold">The Action</h1>
+                <h1 className="text-xl font-bold">The Reasoning</h1>
 
                 <div className="flex flex-col gap-y-1">
-                    <span>Context</span>
+                    <span>Why this choice?</span>
 
                     <textarea
-                        placeholder="e.g. Emailing HR today"
-                        value={action}
-                        onChange={(e) => setAction(e.target.value)}
+                        placeholder="Be honest. Are you angry? Scared? Strategic? What's the hidden motive?"
+                        value={reasoning}
+                        onChange={(e) => setReasoning(e.target.value)}
                         rows={8}
                         className="px-3 input-primary min-h-[180px] resize-none"
                     />
-                    <span className="text-xs text-white/80">This is your moment of commitment. Be specific.</span>
+                    <span className="text-xs text-white/80">Hint: The more honest you are, the better analysis.</span>
                 </div>
 
-                <button onClick={() => navigate("/create-decision/the-reasoning")}
-                    disabled={!action}
+                <button onClick={() => navigate("/create-decision/the-action")}
+                    disabled={!reasoning}
                     className='button-primary mb-5 flex items-center justify-center gap-x-2'>
-                    Next <ArrowRight size={20} />
+                    Submit
                 </button>
 
             </div>

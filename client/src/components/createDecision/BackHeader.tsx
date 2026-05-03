@@ -1,10 +1,15 @@
 import { ChevronLeft } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+
+    const navigate = useNavigate();
+
     return(
         <div className="flex items-center fixed top-0 w-full py-3 px-5">
             
-            <button className="rounded-full flex items-center justify-center border border-white/20 p-3 cursor-pointer">
+            <button onClick={() => navigate(-1)}
+             className="rounded-full flex items-center justify-center border border-white/20 p-3 cursor-pointer">
                 <ChevronLeft className="w-5 h-5 text-white" />
             </button>
 

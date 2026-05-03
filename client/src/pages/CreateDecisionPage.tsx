@@ -9,9 +9,15 @@ export default function CreateDecisionPage() {
     const [title, setTitle] = useState("");
     const [context, setContext] = useState("");
 
+    const [action, setAction] = useState("");
+
+    const [reasoning, setReasoning] = useState("");
+
     return (
         <div>
-            <Outlet context={{ title, setTitle, context, setContext }} />
+            <Outlet context={{ title, setTitle, context, setContext,
+            action, setAction, reasoning, setReasoning
+             }} />
         </div>
     );
 }

@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import { useOutletContext } from "react-router-dom";
+import { ArrowRight } from 'lucide-react';
+import { useOutletContext, useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 type ContextType = {
@@ -12,7 +12,7 @@ type ContextType = {
 export default function Step1TheSituation() {
 
     const { title, setTitle, context, setContext } =
-    useOutletContext<ContextType>();
+        useOutletContext<ContextType>();
 
     const navigate = useNavigate();
 
@@ -46,8 +46,10 @@ export default function Step1TheSituation() {
                     />
                 </div>
 
-                <button onClick={() => navigate("/create-decision/the-action")} className='button-primary mb-5'>
-                    Next
+                <button onClick={() => navigate("/create-decision/the-action")}
+                    disabled={!title || !context}
+                    className='button-primary mb-5 flex items-center justify-center gap-x-2'>
+                    Next <ArrowRight size={20} />
                 </button>
 
             </div>

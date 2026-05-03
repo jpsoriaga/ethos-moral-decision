@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import CreateDecisionPage from "./pages/CreateDecisionPage";
 import Step1TheSituation from "./components/createDecision/Step1TheSituation";
 import Step2TheAction from "./components/createDecision/Step2TheAction";
+import Step3TheReasoning from "./components/createDecision/Step3TheReasoning";
 
 function App() {
   return (
@@ -45,6 +46,12 @@ function App() {
             path="the-action"
             element={<Step2TheAction />}
           />
+
+          <Route
+            path="the-reasoning"
+            element={<Step3TheReasoning />}
+          />
+
         </Route>
 
       </Routes>
