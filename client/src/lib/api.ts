@@ -1,5 +1,6 @@
 export const apiFetch = async (url: string, options: RequestInit = {}) => {
     let accessToken = localStorage.getItem("accessToken") || "";
+    console.log("TOKEN:", accessToken);
 
     const makeRequest = () =>
         fetch(url, {
