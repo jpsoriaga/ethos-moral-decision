@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Header from "../components/createDecision/Header";
+import CreateDecision from "../components/createDecision/CreateDecision";
 
 export default function CreateDecisionPage() {
 
@@ -9,10 +9,8 @@ export default function CreateDecisionPage() {
 
     return(
         <>
-
-            <Header />
             <div>
-                
+                <CreateDecision />
             </div>
         </>
     );
