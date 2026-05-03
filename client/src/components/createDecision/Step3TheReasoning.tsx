@@ -37,7 +37,7 @@ export default function Step3TheReasoning() {
                     <span className="text-xs text-white/80">Hint: The more honest you are, the better analysis.</span>
                 </div>
 
-                <button onClick={() => navigate("/create-decision/the-action")}
+                <button onClick={() => navigate("/dashboard")}
                     disabled={!reasoning}
                     className='button-primary mb-5 flex items-center justify-center gap-x-2'>
                     Submit
