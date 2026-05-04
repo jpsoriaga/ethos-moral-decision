@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NameForm from "../components/register/NameForm";
 import EmailForm from "../components/register/EmailForm"
-import PasswordForm from "../components/register/PasswordForm";
+import PasswordForm from "../components/register/AccountForm";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
@@ -17,6 +17,7 @@ export default function RegisterPage() {
         firstName: "",
         lastName: "",
         email: "",
+        username: "",
         password: "",
     });
 
@@ -30,9 +31,9 @@ export default function RegisterPage() {
 
     return (
         <div>
-            {step === 1 && NameForm()}
-            {step === 2 && EmailForm()}
-            {step === 3 && PasswordForm()}
+            {step === 1 && <NameForm formData={formData} setFormData={setFormData} nextStep={nextStep} />}
+            {step === 2 && <EmailForm formData={formData} setFormData={setFormData} nextStep={nextStep} backStep={backStep} />}
+            {step === 3 && <PasswordForm formData={formData} setFormData={setFormData} backStep={backStep} />}
         </div>
     );
 }
