@@ -14,11 +14,11 @@ export const apiFetch = async (url: string, options: RequestInit = {}) => {
 
     let res = await makeRequest();
 
-    if (res.status === 401) {
+    {/*if (res.status === 401) {
         localStorage.removeItem("accessToken");
         window.location.href = "/";
         throw new Error("Session expired");
-    }
+    }*/}
 
     return res;
 };
