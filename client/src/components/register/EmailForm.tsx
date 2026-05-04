@@ -1,6 +1,6 @@
 
 
-export default function RegisterForm() {
+export default function EmailForm() {
     return(
         <>
             <div>

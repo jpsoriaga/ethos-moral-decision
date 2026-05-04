@@ -127,7 +127,7 @@ export default function LoginForm() {
                     {loading ? "Logging in..." : "Login"}
                 </button>
 
-                <span className='flex items-end justify-center gap-x-1'>Don't have an account? <button className='text-primary-color'>Register</button></span>
+                <span className='flex items-end justify-center gap-x-1'>Don't have an account? <button onClick={() => navigate("/register")} className='text-primary-color'>Register</button></span>
             </div>
         </>
     );
