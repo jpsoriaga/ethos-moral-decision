@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Backheader from "./BackHeader"
 import { useOutletContext, useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 type ContextType = {
     reasoning: string;
