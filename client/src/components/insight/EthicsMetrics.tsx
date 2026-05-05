@@ -38,39 +38,39 @@ function MetricRow({ label, count, total, color }: MetricRowProps) {
 }
 
 type EthicsMetricsProps = {
-  grey: number;
-  high: number;
-  questionable: number;
-  unacceptable: number;
+  neutral: number;
+  right: number;
+  doubtful: number;
+  wrong: number;
 };
 
 export default function EthicsMetrics({
-  grey = 0,
-  high = 0,
-  questionable = 0,
-  unacceptable = 0,
+  neutral = 0,
+  right = 0,
+  doubtful = 0,
+  wrong = 0,
 }: EthicsMetricsProps) {
-  const total = grey + high + questionable + unacceptable;
+  const total = neutral + right + doubtful + wrong;
 
   return (
     <div className="w-full bg-[#1c1c1c] py-4 px-5 rounded-3xl">
       <h2 className="text-white font-semibold mb-4">Ethics Breakdown</h2>
 
       <div className="flex flex-col gap-y-1">
-        <MetricRow label="High" count={high} total={total} color="#22c55e" />
+        <MetricRow label="Right" count={right} total={total} color="#22c55e" />
 
-        <MetricRow label="Grey" count={grey} total={total} color="#9ca3af" />
+        <MetricRow label="Neutral" count={neutral} total={total} color="#9ca3af" />
 
         <MetricRow
-          label="Questionable"
-          count={questionable}
+          label="Doubtful"
+          count={doubtful}
           total={total}
           color="#facc15"
         />
 
         <MetricRow
-          label="Unacceptable"
-          count={unacceptable}
+          label="Wrong"
+          count={wrong}
           total={total}
           color="#ef4444"
         />

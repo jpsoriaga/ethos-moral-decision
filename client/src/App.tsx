@@ -9,6 +9,8 @@ import Step1TheSituation from "./components/createDecision/Step1TheSituation";
 import Step2TheAction from "./components/createDecision/Step2TheAction";
 import Step3TheReasoning from "./components/createDecision/Step3TheReasoning";
 import { useAuth } from "../src/auth/useAuth";
+import RegisterPage from "./pages/RegisterPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 function App() {
 
@@ -29,8 +31,11 @@ function App() {
           },
         }}
       />
+
       <Routes>
         <Route path="/" element={<PublicRoute><LoginPage /></PublicRoute>} />
+        <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
+        <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
 
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
 
@@ -59,6 +64,8 @@ function App() {
         </Route>
 
       </Routes>
+
+
     </>
   )
 }

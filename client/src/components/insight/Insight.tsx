@@ -3,7 +3,7 @@ import RiskCard from "./RiskCard";
 import EthicsMetrics from "./EthicsMetrics";
 import RiskMetrics from "./RiskMetrics";
 import WeeklyChart from "./WeeklyChart";
-import { apiFetch } from "../../lib/api";
+import { privateFetch } from "../../lib/api";
 import { useEffect, useState } from "react";
 
 type Insight = {
@@ -43,10 +43,10 @@ export default function Insight() {
         const fetchInsight = async () => {
             setLoading(true);
             try {
-                const resInsight = await apiFetch("https://ethos-moral-decision-logger-api.onrender.com/api/insights/");
+                const resInsight = await privateFetch("https://ethos-moral-decision-logger-api.onrender.com/api/insights/");
                 const dataInsight = await resInsight.json();
                 
-                const resWeekly = await apiFetch("https://ethos-moral-decision-logger-api.onrender.com/api/decisions/weekly-count/");
+                const resWeekly = await privateFetch("https://ethos-moral-decision-logger-api.onrender.com/api/decisions/weekly-count/");
                 const dataWeekly = await resWeekly.json();
 
                 setInsight(dataInsight);
@@ -63,19 +63,19 @@ export default function Insight() {
 
     const getEthicsStats = (data: Insight["ethics_distribution"]) => {
         const result = {
-            grey: 0,
-            high: 0,
-            questionable: 0,
-            unacceptable: 0,
+            neutral: 0,
+            right: 0,
+            doubtful: 0,
+            wrong: 0,
         };
 
         data.forEach((item) => {
             const key = item.ethics.toLowerCase();
 
-            if (key === "grey") result.grey += item.count;
-            if (key === "high") result.high += item.count;
-            if (key === "questionable") result.questionable += item.count;
-            if (key === "unacceptable") result.unacceptable += item.count;
+            if (key === "neutral") result.neutral += item.count;
+            if (key === "right") result.right += item.count;
+            if (key === "doubtful") result.doubtful += item.count;
+            if (key === "wrong") result.wrong += item.count;
         });
 
         return result;
@@ -113,7 +113,7 @@ export default function Insight() {
                 <HeroSection />
                 <div className="justify-between flex gap-x-3">
                     <div className="w-1/2">
-                        <RiskCard />
+                        <RiskCard low={risk.low} medium={risk.medium} high={risk.high} />
                     </div>
                     <div className="w-1/2">
                         <WeeklyChart
@@ -131,10 +131,10 @@ export default function Insight() {
                     </div>
                 </div>
 
-                <EthicsMetrics grey={ethics.grey}
-                    high={ethics.high}
-                    questionable={ethics.questionable}
-                    unacceptable={ethics.unacceptable} />
+                <EthicsMetrics neutral={ethics.neutral}
+                    right={ethics.right}
+                    doubtful={ethics.doubtful}
+                    wrong={ethics.wrong} />
 
                 <RiskMetrics low={risk.low} medium={risk.medium} high={risk.high} />
             </div>
