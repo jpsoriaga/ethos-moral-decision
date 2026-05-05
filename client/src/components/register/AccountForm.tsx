@@ -4,6 +4,7 @@ import type { FormData } from "../../types/registerType";
 import NProgress from "nprogress";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import ConfirmDialog from "./ConfirmDialog";
 
 type NameFormProps = {
     formData: FormData;
@@ -18,9 +19,11 @@ export default function AccountForm({ formData, setFormData }: NameFormProps) {
     const [errorUsername, setErrorUsername] = useState(false);
 
     const [confirmPassword, setConfirmPassword] = useState("");
-    
+
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [error, setError] = useState(false);
+
+    const [openDialog, setOpenDialog] = useState(false);
 
     const navigate = useNavigate();
 
@@ -31,12 +34,33 @@ export default function AccountForm({ formData, setFormData }: NameFormProps) {
         username: formData.username,
         password: formData.password
     }
- 
-    const submitForm = async () => {
-        if(confirmPassword !== formData.password) {
-            return setError("mismatch password");
+
+    const handleSubmit = () => {
+
+        if(!formData.username) {
+            setErrorUsername(true);
         }
 
+        if (!formData.password) {
+            setErrorPassword(true);
+        }
+
+        if (!confirmPassword) {
+            setErrorConfirmPassword(true);
+        }
+
+        if (!formData.password || !confirmPassword || !formData.username) {
+            return;
+        }
+
+        if (confirmPassword !== formData.password) {
+            return setError(true);
+        }
+
+        setOpenDialog(true);
+    }
+
+    const submitForm = async () => {
         try {
             NProgress.start();
             setLoading(true);
@@ -61,7 +85,7 @@ export default function AccountForm({ formData, setFormData }: NameFormProps) {
             }, 300);
 
         } catch (err: string | any) {
-            setError(err.message);
+            throw new Error(err.message);
         } finally {
             NProgress.done();
             setLoading(false);
@@ -120,17 +144,19 @@ export default function AccountForm({ formData, setFormData }: NameFormProps) {
                                 placeholder="Enter your password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                onClick={() => setErrorConfirmPassword(false)}
-                                className={`pl-3 pr-3  mb-5 ${errorConfirmPassword ? "input-error" : "input-primary"}`}
+                                onClick={() => {setErrorConfirmPassword(false); setError(false);}}
+                                className={`pl-3 pr-3 ${errorConfirmPassword || error ? "input-error" : "input-primary"}`}
                             />
                         </div>
-                        {errorConfirmPassword && <span className='text-error'>Confirm password is required</span>}
+                        {errorConfirmPassword ? <span className="text-error">Confirm password is required</span>
+                        : error ? <span className="text-error">Password don't match. Please try again</span> : null}
                     </div>
-                    <button onClick={submitForm} className='button-primary'>
+                    <button onClick={handleSubmit} className='button-primary'>
                         {loading ? "Submitting..." : "Submit"}
                     </button>
                 </div>
             </div>
+            <ConfirmDialog openDialog={openDialog} setOpenDialog={setOpenDialog} submitForm={submitForm} />
         </>
     );
 }
