@@ -37,7 +37,7 @@ function App() {
         <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
         <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
 
-        <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+        <Route path="/insights" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
 
         <Route
           path="/create-decision"

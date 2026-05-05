@@ -1,4 +1,4 @@
-import { House, User, ClipboardList, PencilLine, Plus } from "lucide-react";
+import { House, User, ClipboardList, PencilLine, ChartPie } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
@@ -24,6 +24,17 @@ export default function NavBar() {
                 <PencilLine className={`w-5 h-5 ${isActive ? "text-primary-color" : "text-white"}`} />
                 <span className={`text-[10px] sm:text-xs ${isActive ? "text-primary-color" : "text-white"}`}>
                   Decision
+                </span>
+              </>
+            )}
+          </NavLink>
+
+          <NavLink to="/insights" className="flex flex-col items-center flex-1">
+            {({ isActive }) => (
+              <>
+                <ChartPie className={`w-5 h-5 ${isActive ? "text-primary-color" : "text-white"}`} />
+                <span className={`text-[10px] sm:text-xs ${isActive ? "text-primary-color" : "text-white"}`}>
+                  Insights
                 </span>
               </>
             )}
