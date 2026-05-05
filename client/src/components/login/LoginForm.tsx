@@ -121,7 +121,7 @@ export default function LoginForm() {
                     </div>
                 </div>
 
-                <button className='text-primary-color flex w-full justify-end mb-5'>Forgot Password?</button>
+                <button onClick={() => navigate("/forgot-password")} className='text-primary-color flex w-full justify-end mb-5'>Forgot Password?</button>
 
                 <button onClick={handleLogin} disabled={loading} className='button-primary mb-5'>
                     {loading ? "Logging in..." : "Login"}

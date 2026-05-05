@@ -3,7 +3,7 @@ import RiskCard from "./RiskCard";
 import EthicsMetrics from "./EthicsMetrics";
 import RiskMetrics from "./RiskMetrics";
 import WeeklyChart from "./WeeklyChart";
-import { apiFetch } from "../../lib/api";
+import { privateFetch } from "../../lib/api";
 import { useEffect, useState } from "react";
 
 type Insight = {
@@ -43,10 +43,10 @@ export default function Insight() {
         const fetchInsight = async () => {
             setLoading(true);
             try {
-                const resInsight = await apiFetch("https://ethos-moral-decision-logger-api.onrender.com/api/insights/");
+                const resInsight = await privateFetch("https://ethos-moral-decision-logger-api.onrender.com/api/insights/");
                 const dataInsight = await resInsight.json();
                 
-                const resWeekly = await apiFetch("https://ethos-moral-decision-logger-api.onrender.com/api/decisions/weekly-count/");
+                const resWeekly = await privateFetch("https://ethos-moral-decision-logger-api.onrender.com/api/decisions/weekly-count/");
                 const dataWeekly = await resWeekly.json();
 
                 setInsight(dataInsight);

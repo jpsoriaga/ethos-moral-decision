@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import NameForm from "../components/register/NameForm";
 import EmailForm from "../components/register/EmailForm"
 import PasswordForm from "../components/register/AccountForm";
-import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
     useEffect(() => {
@@ -10,8 +9,6 @@ export default function RegisterPage() {
     }, []);
 
     const [step, setStep] = useState(1);
-
-    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: "",
