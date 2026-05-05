@@ -8,13 +8,13 @@ export default function HeroSection() {
                 <div className="flex flex-col justify-between">
                     <div className="flex flex-col gap-y-1">
                     <h1 className="text-sm text-black">Common Ethics</h1>
-                    <h1 className="font-bold text-lg text-black">High</h1>
+                    <h1 className="font-bold text-lg text-black">Right</h1>
                 </div>
 
                 <span className='text-black text-xs font-medium'>11 Total Decisions</span>
                 </div>
 
-                <EthicsProgress high={2} total={10} />
+                <EthicsProgress right={2} total={10} />
             </div>
         </>
     );

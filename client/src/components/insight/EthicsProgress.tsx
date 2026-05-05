@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function EthicsProgress({
-    high = 0,
+    right = 0,
     total = 10,
     size = 100,
     strokeWidth = 10,
@@ -9,7 +9,7 @@ export default function EthicsProgress({
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
 
-    const percentage = total === 0 ? 0 : (high / total) * 100;
+    const percentage = total === 0 ? 0 : (right / total) * 100;
 
     const [offset, setOffset] = useState(circumference);
 
