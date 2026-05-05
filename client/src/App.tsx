@@ -11,6 +11,7 @@ import Step3TheReasoning from "./components/createDecision/Step3TheReasoning";
 import { useAuth } from "../src/auth/useAuth";
 import RegisterPage from "./pages/RegisterPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ListDecisionsPage from "./pages/ListDecisionsPage";
 
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
 
         <Route path="/insights" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
 
-        <Route path="/list-of-decisions" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+        <Route path="/list-of-decisions" element={<ProtectedRoute><ListDecisionsPage /></ProtectedRoute>} />
 
 
         <Route
