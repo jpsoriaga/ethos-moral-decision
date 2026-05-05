@@ -1,7 +1,12 @@
 import { useRef, useState } from "react";
-import Header from "./Header";
+import BackHeader from "./BackHeader";
 
-export default function CodeForm() {
+type CodeFormProps = {
+
+    backStep: () => void;
+}
+
+export default function CodeForm({ backStep }: CodeFormProps) {
     const length = 5;
     const [code, setCode] = useState<string[]>(Array(length).fill(""));
     const [activeIndex, setActiveIndex] = useState(0);
@@ -41,7 +46,7 @@ export default function CodeForm() {
     return (
         <>
             <div className="w-full min-h-screen flex flex-col my-25">
-                <Header />
+                <BackHeader backStep={backStep} />
                 <div className="flex flex-col px-5 gap-y-3">
                     <h1 className="font-semibold text-4xl">Enter verification code</h1>
                     <span className="text-white/70 mb-20">Check your email and enter the 5-digit code</span>
