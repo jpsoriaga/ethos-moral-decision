@@ -13,6 +13,15 @@ export default function EmailForm({ formData, setFormData, nextStep, backStep }:
 
     const [errorEmail, setErrorEmail] = useState(false);
 
+    const handleContinue = () => {
+        if(!formData.email) {
+            setErrorEmail(true);
+            return;
+        }
+
+        nextStep();
+    }
+
     return (
         <>
             <div className="w-full min-h-screen flex flex-col my-25">
@@ -39,7 +48,7 @@ export default function EmailForm({ formData, setFormData, nextStep, backStep }:
                         {errorEmail && <span className='text-error'>Email is required</span>}
                     </div>
 
-                    <button onClick={nextStep} className='button-primary mt-5'>
+                    <button onClick={handleContinue} className='button-primary mt-5'>
                         Continue
                     </button>
                 </div>

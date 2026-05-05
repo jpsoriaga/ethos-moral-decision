@@ -13,6 +13,22 @@ export default function NameForm({ formData, setFormData, nextStep }: NameFormPr
     const [errorFirstName, setErrorFirstName] = useState(false);
     const [errorLastName, setErrorLastName] = useState(false);
 
+    const handleContinue = () => {
+        if(!formData.firstName) {
+            setErrorFirstName(true);
+        }
+
+        if(!formData.lastName) {
+            setErrorLastName(true);
+        }
+
+        if(!formData.firstName || !formData.lastName) {
+            return;
+        }
+
+        nextStep();
+    }
+
     return (
         <>
             <div className="w-full min-h-screen flex flex-col my-25">
@@ -49,12 +65,12 @@ export default function NameForm({ formData, setFormData, nextStep }: NameFormPr
                                 value={formData.lastName}
                                 onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                                 onClick={() => setErrorLastName(false)}
-                                className={`pl-3 pr-3  mb-5 ${errorLastName ? "input-error" : "input-primary"}`}
+                                className={`pl-3 pr-3 ${errorLastName ? "input-error" : "input-primary"}`}
                             />
                         </div>
                         {errorLastName && <span className='text-error'>Last name is required</span>}
                     </div>
-                    <button onClick={nextStep} className='button-primary'>
+                    <button onClick={handleContinue} className='button-primary'>
                         Continue
                     </button>
                 </div>
