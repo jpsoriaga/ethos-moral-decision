@@ -1,18 +1,18 @@
 import { useState } from "react";
-import Header from "./Header";
+import BackHeader from "./BackHeader";
 import type { FormData } from "../../types/registerType";
 import NProgress from "nprogress";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ConfirmDialog from "./ConfirmDialog";
 
-type NameFormProps = {
+type AccountFormProps = {
     formData: FormData;
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
     backStep: () => void;
 }
 
-export default function AccountForm({ formData, setFormData }: NameFormProps) {
+export default function AccountForm({ formData, setFormData, backStep }: AccountFormProps) {
 
     const [errorPassword, setErrorPassword] = useState(false);
     const [errorConfirmPassword, setErrorConfirmPassword] = useState(false);
@@ -95,7 +95,7 @@ export default function AccountForm({ formData, setFormData }: NameFormProps) {
     return (
         <>
             <div className="w-full min-h-screen flex flex-col my-25">
-                <Header />
+                <BackHeader backStep={backStep} />
                 <div className="flex flex-col px-5 gap-y-3">
                     <h1 className="font-semibold text-4xl">What's your account?</h1>
                     <span className="text-white/70 mb-20">So you can securely access your account.</span>
