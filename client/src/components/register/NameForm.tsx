@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import type { FormData } from "../../types/registerType";
+import { useNavigate } from "react-router-dom";
 
 type NameFormProps = {
     formData: FormData;
@@ -12,6 +13,8 @@ export default function NameForm({ formData, setFormData, nextStep }: NameFormPr
 
     const [errorFirstName, setErrorFirstName] = useState(false);
     const [errorLastName, setErrorLastName] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleContinue = () => {
         if(!formData.firstName) {
@@ -73,6 +76,7 @@ export default function NameForm({ formData, setFormData, nextStep }: NameFormPr
                     <button onClick={handleContinue} className='button-primary'>
                         Continue
                     </button>
+                    <span className='flex items-end justify-center gap-x-1'>Already have an account? <button onClick={() => navigate("/")} className='text-primary-color'>Login</button></span>
                 </div>
             </div>
         </>
