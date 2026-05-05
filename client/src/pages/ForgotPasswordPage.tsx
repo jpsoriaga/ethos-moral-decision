@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EmailForm from "../components/forgotPassword/EmailForm";
+import CodeForm from "../components/forgotPassword/CodeForm";
 
 export default function ForgotPasswordPage() {
     useEffect(() => {
@@ -25,6 +26,7 @@ export default function ForgotPasswordPage() {
     return (
         <div>
             {step === 1 && <EmailForm formData={formData} setFormData={setFormData} nextStep={nextStep} />}
+            {step === 2 && <CodeForm />}
         </div>
     );
 }

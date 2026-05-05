@@ -15,7 +15,7 @@ export default function EmailForm({ formData, setFormData, nextStep }: NameFormP
     const [errorEmail, setErrorEmail] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const handleContinue = async () => {
+    {/* const handleContinue = async () => {
         if(!formData.email) {
             setErrorEmail(true);
             return;
@@ -44,7 +44,7 @@ export default function EmailForm({ formData, setFormData, nextStep }: NameFormP
         } finally {
             setLoading(false);
         }
-    }
+    }*/}
 
     return (
         <>
@@ -72,7 +72,7 @@ export default function EmailForm({ formData, setFormData, nextStep }: NameFormP
                         {errorEmail && <span className='text-error'>Email is required</span>}
                     </div>
 
-                    <button onClick={handleContinue} className='button-primary mt-5'>
+                    <button onClick={nextStep} className='button-primary mt-5'>
                         {loading ? "Loading..." : "Continue"}
                     </button>
                 </div>
