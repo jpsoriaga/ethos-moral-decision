@@ -39,6 +39,9 @@ function App() {
 
         <Route path="/insights" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
 
+        <Route path="/list-of-decisions" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+
+
         <Route
           path="/create-decision"
           element={
